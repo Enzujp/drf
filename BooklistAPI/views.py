@@ -4,6 +4,6 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 
-@api_view
+@api_view()
 def books(request):
     return Response('list of the books', status=status.HTTP_200_OK)
