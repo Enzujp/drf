@@ -23,3 +23,9 @@ class Orders():
 
 #Routing class-based views
 
+class BookView(APIView):
+    def get(self, request, pk):
+        return Response({"message": "single book with id" + str(pk)}, status=status.HTTP_200_OK)
+    
+    def put(self, request, pk):
+        return Response({"title": request.data.get('title')}, status=status.HTTP_200_OK)
