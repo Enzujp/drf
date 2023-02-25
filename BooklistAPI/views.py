@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import viewsets
+from rest_framework.views import APIView
 # from django.http import HttpResponse
 from rest_framework.decorators import api_view
 
@@ -23,9 +25,17 @@ class Orders():
 
 #Routing class-based views
 
-class BookView(APIView):
-    def get(self, request, pk):
-        return Response({"message": "single book with id" + str(pk)}, status=status.HTTP_200_OK)
+# class BookView(Orders):
+#     def get(self, request, pk):
+#         return Response({"message": "single book with id" + str(pk)}, status=status.HTTP_200_OK)
     
-    def put(self, request, pk):
-        return Response({"title": request.data.get('title')}, status=status.HTTP_200_OK)
+#     def put(self, request, pk):
+#         return Response({"title": request.data.get('title')}, status=status.HTTP_200_OK)
+
+
+class BookView(viewsets.ViewSet):
+    def list(self, request):
+        return Response({"message": "All books"}, status.HTTP_200_OK)
+    
+    def create(self, request):
+        return Response({"message": "creating a book"}, status.HTTP_201_CREATED)
