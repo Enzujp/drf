@@ -11,7 +11,7 @@ urlpatterns = [
     path('books/<int:pk>', views.BookView.as_view({
         'get': 'retrieve',
         'put': 'update',
-        'patch': 'partially_update',
+        'patch': 'partial_update',
         'delete': 'destroy',
     }), name="bookview")
 ]
