@@ -41,8 +41,14 @@ class BookView(viewsets.ViewSet):
         return Response({"message": "creating a book"}, status.HTTP_201_CREATED)
 
 
-class BookViews(APIView):
-    def get(self, request, pk):
-        return Response({"message": "single book with id" + ' ' + str(pk)}, status.HTTP_200_OK)
-    def put(self, request, pk):
-        return Response({"title": request.data.get('title')}, status.HTTP_200_OK)
+    def update(self, request, pk=None):
+        return Response({"message": "updating a book"}, status.HTTP_200_OK)
+    
+    def retrieve(self, request, pk=None):
+        return Response({"message": "Displaying a book"}, status.HTTP_200_OK)
+    
+    def partial_update(self, request, pk=None):
+        return Response({"message": "Partially updating a book"}, status.HTTP_200_OK)
+
+    def destroy(self, request, pk=None):
+        return Response({"message": "Deleting a book"}, status.HTTP_200_OK)

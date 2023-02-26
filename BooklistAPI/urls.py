@@ -8,5 +8,5 @@ urlpatterns = [
     #     'get': 'list',
     #     'post': 'create',
     # }), name="books"),
-    path('books/<int:pk>', views.BookViews.as_view())
+    path('books/<int:pk>', views.BookView.as_view())
 ]
